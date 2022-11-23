@@ -38,6 +38,11 @@ class Validator
         return response()->json(self::responseObject(200, $message, $data, $nullable), 200);
     }
 
+    public static function customResponse($code = null, $message, $data = null, $nullable = true)
+    {
+        return response()->json(self::responseObject($code, $message, $data, $nullable), 200);
+    }
+
     public static function failedResponse($message, $code = 400, $log = false, $data = null)
     {
         $response = response()->json(self::responseObject($code, $message, $data), $code);
